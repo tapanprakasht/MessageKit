@@ -63,13 +63,13 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return collectionView.frame.width - sectionInset.left - sectionInset.right
     }
 
-    override open class var layoutAttributesClass: AnyClass {
+    open override class var layoutAttributesClass: AnyClass {
         return MessagesCollectionViewLayoutAttributes.self
     }
 
     // MARK: - Initializers
 
-    override public init() {
+    public override init() {
 
         messageLabelFont = UIFont.preferredFont(forTextStyle: .body)
         messageLabelInsets = UIEdgeInsets(top: 7, left: 14, bottom: 7, right: 14)
@@ -94,7 +94,7 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Layout Attributes
 
-    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
         guard let attributesArray = super.layoutAttributesForElements(in: rect) as? [MessagesCollectionViewLayoutAttributes] else { return nil }
 
@@ -107,7 +107,7 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
         return attributesArray
     }
 
-    override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    open override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
 
         guard let attributes = super.layoutAttributesForItem(at: indexPath) as? MessagesCollectionViewLayoutAttributes else { return nil }
 
@@ -152,7 +152,7 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     // MARK: - Invalidation Context
 
-    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+    open override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
 
         return collectionView?.bounds.width != newBounds.width || collectionView?.bounds.height != newBounds.height
 

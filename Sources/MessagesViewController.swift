@@ -36,11 +36,11 @@ open class MessagesViewController: UIViewController {
 
     private var isFirstLayout: Bool = true
 
-    override open var canBecomeFirstResponder: Bool {
+    open override var canBecomeFirstResponder: Bool {
         return true
     }
 
-    override open var inputAccessoryView: UIView? {
+    open override var inputAccessoryView: UIView? {
         return messageInputBar
     }
 
